@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!--<script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>-->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <style>
+        .container{
+            margin-top: 20px;
+            width: 80%;
+        }
+        .table{
+            margin-top: 20px;
+        }
+         tr{
+             color: rebeccapurple;
+         }
+    </style>
+</head>
+<body>
+  <div class="container">
+      <form class="form-inline">
+          <div class="form-group">
+              <input class="form-control" type="text" placeholder="输入文章链接"/>
+          </div>
+          <button class="btn btn-primary">添加</button>
+      </form>
+      <table class="table">
+          <tbody>
+              <tr class="active">
+                  <th>标题</th>
+                  <th>字数</th>
+                  <th>中文字数</th>
+                  <th>英文字数</th>
+                  <th>标点符号数</th>
+              </tr>
+
+          </tbody>
+
+      </table>
+  </div>
+  <script src='index.js'></script>
+</body>
+</html>
