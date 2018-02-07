@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no,minimal-ui" name="viewport" />
+    <script
+            src="http://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        #page{
+            position: relative;
+        }
+        header{
+            height: 45px;
+            width: 100%;
+            background-color:#1ba9ba;
+            color: white;
+            position: fixed;
+            top:0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 20;
+
+        }
+        /*日期列表*/
+        .date-list{
+            height: 60px;
+            width: 100%;
+            background-color:#1ba9ba;
+            color: white;
+            transition: height 0.3s;
+            position: fixed;
+            top:45px;
+            display: flex;
+            font-size: smaller;
+            z-index: 20;
+        }
+        .date-list-left{
+           display: flex;
+            width: 80%;
+        }
+        .date-item{
+            overflow: hidden;
+            flex: 1;
+            margin: 0 3px 3px 3px;
+            border-radius: 5px;
+        }
+        .date-item p{
+            text-align: center;
+        }
+        .date-list-right{
+            line-height: 60px;
+            text-align: center;
+            margin: 0 3px 3px 3px;
+           /*border-left: ;*/
+        }
+        .date-item-active{
+            color: #1ba9ba;
+            background-color: #e7f8fc;
+        }
+        /*航班列表*/
+        .flight-list-container{
+            margin-top: 105px;
+        }
+        .flight-list{
+            /*height: 5800px;*/
+            z-index: 10;
+
+        }
+        .flight-item{
+            display: flex;
+            border-bottom: 1px solid rgba(197, 197, 197, 0.3);
+            padding: 10px 15px;
+        }
+        .flight-info{
+            flex: 5;
+            position: relative;
+        }
+        .flight-price{
+            flex:2;
+        }
+        .price-info{
+            flex: 1;
+        }
+        .airport-info{
+            display: flex;
+        }
+        .from-info{
+            flex: 3;
+        }
+        .time-info{
+            flex: 4;
+
+        }
+        .to-info{
+            flex:3;
+
+        }
+        .to-info p,.flight-price p{
+            display: flex;
+            justify-content: flex-end;
+        }
+        .company-info,.more-info,.terminal{
+            font-size: 12px;
+            color: #999;
+        }
+        .terminal{
+            margin: 6px 0;
+        }
+        .company-info{
+            position: absolute;
+            bottom: 0;
+        }
+        .price-state{
+            font-size: 12px;
+            background-color: orange;
+            color: white;
+        }
+        .ticket-state{
+            color: orange;
+            font-size: 12px;
+        }
+        .price-info{
+            color: orange;
+        }
+        .other-info{
+            margin-top: 5px;
+        }
+        .plane-info{
+            position: relative;
+            height: 12px;
+        }
+        .arrow-right{
+            position: absolute;
+            width: 100%;
+            border-bottom: 1px solid #999;
+            margin-top: 20px;
+        }
+        .arrow-right:after{
+            content: "";
+            width: 6px;
+            height: 6px;
+            display: inline-block;
+            transform-origin: bottom right;
+            border-right: 1px solid #999;
+            transform: rotate(-60deg);
+            float: right;
+        }
+
+        /*过滤器*/
+        .flight-filter{
+            height: 50px;
+            width: 100%;
+            position: fixed;
+            bottom: 0;
+            transition: height 0.3s;
+            border-top: 1px solid rgba(197, 197, 197, 0.3);
+            background: #f8f8f8;
+            z-index: 20;
+            display: flex;
+            color: #999999;
+            font-size: 0.9em;
+        }
+        .filter-item{
+            flex: 1;
+            line-height: 50px;
+            text-align: center;
+        }
+        .filter-active{
+            color: #1ba9ba;
+        }
+
+    </style>
+</head>
+<body>
+    <div id="page">
+        <header>
+            <span>北京->上海</span>
+        </header>
+        <div class="date-list">
+            <div class="date-list-left">
+            </div>
+            <div class="date-list-right">
+              更多日期
+            </div>
+        </div>
+        <div class="flight-list-container">
+            <div class="flight-list">
+                <ul>
+
+                </ul>
+            </div>
+            <div class="flight-filter">
+               <div class="filter-item">筛选</div>
+               <div class="filter-item filter-active">推荐排序</div>
+               <div class="filter-item">时间</div>
+               <div class="filter-item">价格</div>
+            </div>
+        </div>
+    </div>
+    <script src="index.js"></script>
+</body>
+</html>
