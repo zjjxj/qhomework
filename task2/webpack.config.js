@@ -4,7 +4,7 @@ const path = require('path');
 module.exports = {
     entry: {
         // vendor: ["react", "react-dom"],
-        index: "./public/index.js"
+        index: "./public/main.js"
     },
     output: {
         path: path.resolve("./dist"),
