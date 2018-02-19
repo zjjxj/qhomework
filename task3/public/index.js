@@ -31,8 +31,8 @@ function renderTable(arr) {
     let str="";
     arr.map(function (value,index) {
         str+=`
-          </tr><tr><td>${value.title}</td><td>${value.total}</td><td>${value.chi}</td>
-                <td>${value.eng}</td><td>${value.pun}</td></tr>`
+          </tr><tr><td>${value.title}</td><td>${value.number}</td><td>${value.chNumber}</td>
+                <td>${value.enNumber}</td><td>${value.puncNumber}</td></tr>`
     })
 
     $("tbody").append(str);
@@ -42,8 +42,8 @@ function renderTable(arr) {
 function renderRow(arr) {
     let value = arr.pop();
     let str=`
-          </tr><tr><td>${value.title}</td><td>${value.total}</td><td>${value.chi}</td>
-                <td>${value.eng}</td><td>${value.pun}</td></tr>`;
+          </tr><tr><td>${value.title}</td><td>${value.number}</td><td>${value.chNumber}</td>
+                <td>${value.enNumber}</td><td>${value.puncNumber}</td></tr>`;
 
     $("tbody").append(str);
 }

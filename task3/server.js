@@ -12,8 +12,20 @@ app.get("/",function (req,res) {
     res.redirect("/index.html");
 });
 
+
 app.get("/getData",function (req,res) {
-     res.json(dataBase);
+     // res.json(dataBase);
+    let  resData=[];
+    const url ='/counter/getData';
+    request(url, function (error, response, body) {
+        if (response) {
+            resData=body;
+            res.json(resData);
+
+        } else {
+            console.log(err);
+        }
+    })
 });
 
 
@@ -42,25 +54,43 @@ app.get("/counter",function (req,res) {
                                }
                            }
                        }
-                   };
-               };
+                   }
+               }
+
                travelDom($('body')[0]);
 
-               let item={"title":url,"total":str.length,"chi":0,"eng":0,"pun":0};
+               let item={"title":url,"number":str.length,"chNumber":0,"enNumber":0,"puncNumber":0};
                for(let j=0;j<str.length;j++){
                    let code = str.charCodeAt(j);
                    if(code>255){
-                       item.chi++;
+                       item.chNumber++;
                    }else if((code>=65 && code<=90) || (code>=97 && code<=122)){
-                       item.eng++;
+                       item.enNumber++;
                    }else{
-                       item.pun++;
+                       item.puncNumber++;
                    }
                }
+
+               //存入数据库
+               request({
+                   url: '/counter/save' ,
+                   method: "POST",
+                   json: true,
+                   headers: {
+                       "content-type": "application/json",
+                   },
+                   body: JSON.stringify(item)
+               }, function(error, response, body) {
+                   if (!error && response.statusCode == 200) {
+                       console.log(body) // 请求成功的处理逻辑
+
+                   }
+               });
+               //mockData
                dataBase.push(item);
            }
 
-           res.json(dataBase);
+           res.redirect("/getData");
 
        });
 
