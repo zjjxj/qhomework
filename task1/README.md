@@ -1,5 +1,7 @@
+运行程序：
+
 ##npm i
 
 ##node server
 
-##打开localhost:8080
+##在浏览器中打开localhost:8080

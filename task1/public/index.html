@@ -56,10 +56,13 @@
             text-align: center;
         }
         .date-list-right{
-            line-height: 60px;
+            /*line-height: 60px;*/
+            padding-left: 5px;
             text-align: center;
             margin: 0 3px 3px 3px;
-           /*border-left: ;*/
+            display: flex;
+            flex-direction: column;
+           border-left:1px solid gainsboro ;
         }
         .date-item-active{
             color: #1ba9ba;
@@ -170,12 +173,42 @@
         }
         .filter-item{
             flex: 1;
-            line-height: 50px;
+            /*line-height: 50px;*/
+            /*text-align: center;*/
+            display: flex;
+            flex-direction: column;
+
+        }
+        .filter-item span,.filter-item i{
             text-align: center;
         }
+
         .filter-active{
             color: #1ba9ba;
         }
+
+        @font-face {
+            font-family: 'iconfont';  /* project id 576033 */
+            src: url('//at.alicdn.com/t/font_576033_a8xlfumvwx50cnmi.eot');
+            src: url('//at.alicdn.com/t/font_576033_a8xlfumvwx50cnmi.eot?#iefix') format('embedded-opentype'),
+            url('//at.alicdn.com/t/font_576033_a8xlfumvwx50cnmi.woff') format('woff'),
+            url('//at.alicdn.com/t/font_576033_a8xlfumvwx50cnmi.ttf') format('truetype'),
+            url('//at.alicdn.com/t/font_576033_a8xlfumvwx50cnmi.svg#iconfont') format('svg');
+        }
+        .iconfont{
+            font-family:"iconfont";
+            font-size:28px;
+            font-style:normal;
+            /*-webkit-font-smoothing: antialiased;*/
+            /*-webkit-text-stroke-width: 0.2px;*/
+            /*-moz-osx-font-smoothing: grayscale;*/
+            /*padding-left:20px*/
+        }
+        .search{
+            position: absolute;
+            right:20px;
+        }
+
 
     </style>
 </head>
@@ -183,12 +216,14 @@
     <div id="page">
         <header>
             <span>北京->上海</span>
+            <i class='iconfont search'>&#xe633;</i>
         </header>
         <div class="date-list">
             <div class="date-list-left">
             </div>
             <div class="date-list-right">
-              更多日期
+                <div><i class="iconfont">&#xe621;</i></div>
+                <div>更多日期</div>
             </div>
         </div>
         <div class="flight-list-container">
@@ -198,10 +233,10 @@
                 </ul>
             </div>
             <div class="flight-filter">
-               <div class="filter-item">筛选</div>
-               <div class="filter-item filter-active">推荐排序</div>
-               <div class="filter-item">时间</div>
-               <div class="filter-item">价格</div>
+                <div class="filter-item"><i class="iconfont">&#xe64a;</i><span>筛选</span></div>
+                <div class="filter-item filter-active"><i class="iconfont">&#xe600;</i><span>推荐排序</span></div>
+                <div class="filter-item"><i class="iconfont">&#xe656;</i><span>时间</span></div>
+                <div class="filter-item"><i class="iconfont">&#xe638;</i><span>价格</span></div>
             </div>
         </div>
     </div>
